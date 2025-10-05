@@ -1,0 +1,173 @@
+body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.titulo-editable {
+  font-size: 1.8em;
+  font-weight: bold;
+  border: 2px solid #aaa;
+  padding: 4px 8px;
+  border-radius: 6px;
+  width: 80%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+.titulo-principal {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  pointer-events: auto;
+}
+
+.marca-agua {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5em;
+  color: rgba(255,255,255,0.05);
+  font-weight: bold;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+/* contenedor general de builds */
+.contenedor-builds {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+  padding: 12px;
+}
+
+/* cada build */
+.build {
+  width: 240px;
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: 10px;
+}
+.marca-build {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  font-size: 12px;
+  opacity: 0.3;
+  font-weight: bold;
+  color: white;
+}
+
+.slots {
+  display: grid !important;             
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 8px;
+  align-items: center;
+  justify-items: center;
+  margin-top: 8px;
+}
+
+/* cada casilla */
+.slot {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.02);
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.04);
+  overflow: hidden;
+}
+
+/* imagen dentro del slot */
+.slot img {
+  max-width: 64px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
+  display: block;
+}
+
+/* responsive: en pantallas pequeñas pasar a 2 o 1 columna */
+@media (max-width: 900px) {
+  .slot { width: 50px;}
+  .slot  img{ width: 47px; }
+}
+@media (max-width: 480px) {
+  .slot { width: 40px; height: 40px; }
+  .slot  img{ width: 36px }
+}
+.selector {
+  position: absolute;
+  width: 200px;               
+  max-height: 360px;          
+  background: rgba(10,10,10,0.95);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;         
+}
+
+/* campo búsqueda */
+.selector .search {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  color: #eee;
+  outline: none;
+}
+
+/* área scrollable con grid de items */
+.selector .selector-grid {
+  overflow-y: auto;
+  padding-right: 4px;        /* espacio para el scrollbar */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* cuántos iconos por fila */
+  gap: 6px;
+}
+
+/* imagenes de items */
+.selector .selector-grid img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+}
+
+/* responsive: menos columnas en pantallas pequeñas */
+@media (max-width: 600px) {
+  .selector { width: 260px; max-height: 300px; }
+  .selector .selector-grid { grid-template-columns: repeat(4, 1fr); }
+}
+.slot.offhand.muted {
+  opacity: 0.32;
+  filter: grayscale(30%);
+  pointer-events: none; /* evita clicks si quieres bloquear totalmente */
+}
+
+/* si quieres que siga permitiendo click pero visualmente opaco, quita pointer-events */
+.slot.offhand.muted.allow-click {
+  pointer-events: auto;
+  cursor: pointer;
+}
