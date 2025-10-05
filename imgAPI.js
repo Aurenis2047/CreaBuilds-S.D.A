@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // opcional: persistir
       try { localStorage.setItem('tituloBuilds', nuevoTitulo.textContent); } catch(e) {}
     }
-git
+
     // Guardar al perder foco o presionar Enter
     input.addEventListener('blur', guardarTitulo, { once: true });
     input.addEventListener('keydown', (e) => {
@@ -235,4 +235,3 @@ function adjustOffhandSlot(buildDiv) {
         }
     }
 }
-
