@@ -41,7 +41,7 @@ git
     input.addEventListener('blur', guardarTitulo, { once: true });
     input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') guardarTitulo();
-    }, { once: true });
+    });
   }
   const titulo = document.getElementById("titulo-principal");
   if (titulo) {
@@ -235,3 +235,4 @@ function adjustOffhandSlot(buildDiv) {
         }
     }
 }
+
